@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yorum Analizi Sonucu</title>
+    <!-- Bootstrap CSS bağlantısı -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJv8l1+K5mGGt0vKzQXXViX2fTtWx8mGRr72YpsJzO1X4O2VQJAfV6Rmd15X" crossorigin="anonymous">
+    <style>
+        /* Sayfa ve form düzenlemeleri */
+        body {
+            background-color: #f4f4f9;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #005FFF;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        .result-text {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .positive {
+            color: #28a745; /* Yeşil */
+        }
+
+        .negative {
+            color: #dc3545; /* Kırmızı */
+        }
+
+        .btn-analyze {
+            background-color: #005FFF;
+            color: white;
+            font-size: 1.2rem;
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            margin-top: 20px;
+        }
+
+        .btn-analyze:hover {
+            background-color: #005FFF;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.2rem;
+            color: #005FFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            color: #005FFF;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Form Başlangıcı -->
+    <div class="container">
+        <h1>Yorum Analizi Sonucu</h1>
+
+        <p class="result-text">Yorum: {{ comment }}</p>
+
+        <!-- Sonuç için dinamik renk uygulaması -->
+        <p class="result-text {% if result == 'Pozitif' %}positive{% else %}negative{% endif %}">
+            Sonuç: {{ result }}
+        </p>
+
+        <!-- Başka bir yorum analiz et bağlantısı -->
+        <a href="{% url 'index' %}" class="back-link">Başka bir yorum analiz et</a>
+    </div>
+
+    <!-- Bootstrap JS ve bağımlılıkları -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybQbGzQy3+6edgZkhs6tG5h5gbrFQY8nA6pJ09faIIyYJjI60" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0cLdrFJyA6npLPz6RCpnM7pZhu1k5p5X9jL2QY6ayAKeWxUfe" crossorigin="anonymous"></script>
+
+</body>
+</html>
